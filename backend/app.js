@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-// const routes = require("./routes");
+const adRoutes = require("./routes/admissionRoutes");
 
 const app = express();
 
@@ -10,11 +10,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Connect to MongoDB
-const mongo_uri = mongoose.connect(
-  "mongodb+srv://sb262202:Admission_Form@admissionform.kacovjn.mongodb.net/candidates?retryWrites=true&w=majority"
-);
+const mongo_uri =
+  "mongodb+srv://sb262202:Admission_Form@admissionform.kacovjn.mongodb.net/candidates?retryWrites=true&w=majority";
+mongoose.connect(mongo_uri);
 
 // Routes
-// app.use('/api', routes);
+app.use("/api", adRoutes);
 
 module.exports = app;
