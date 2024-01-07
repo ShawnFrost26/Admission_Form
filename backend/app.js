@@ -4,10 +4,11 @@ const mongoose = require("mongoose");
 const adRoutes = require("./routes/admissionRoutes");
 
 const app = express();
-
+const cors = require("cors");
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 // Connect to MongoDB
 const mongo_uri =
