@@ -37,17 +37,13 @@ const sendEmail = async (formData) => {
     service: "gmail",
     auth: {
       user: process.env.EMAIL_USER,
-      // user: "professor2602@gmail.com",
       pass: process.env.EMAIL_PASSWORD,
-      // pass: "khej ikiv ycoy exkw",
     },
   });
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    // from: "professor2602@gmail.com",
     to: process.env.TO_EMAIL,
-    // to: "professor2602@gmail.com",
     subject: "New Admission Form Submission",
     text: `New Admission Form Submission\n\n${JSON.stringify(
       formData,
